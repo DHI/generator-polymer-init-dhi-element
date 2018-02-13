@@ -1,0 +1,42 @@
+{
+  "name": "generator-polymer-init-dhi-element",
+  "version": "1.0.0",
+  "description": "Create base DHI Polymer elements.",
+  "author": "DHI Group <dhigroup.com>",
+  "keywords": [
+    "yeoman-generator",
+    "scaffold",
+    "web-component",
+    "polymer"
+  ],
+  "license": "MIT",
+  "repository": "DHI/generator-polymer-init-dhi-element",
+  "main": "generators/index.js",
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-restricted-globals": "^0.1.1",
+    "yeoman-generator": "^0.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-dhi": "^1.0.0",
+    "eslint-plugin-html": "^3.2.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-mocha": "^3.0.0",
+    "gulp-nsp": "^2.4.0",
+    "gulp-plumber": "^1.1.0",
+    "yeoman-assert": "^2.2.0",
+    "yeoman-test": "^1.5.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "lint": "eslint . --ext js,html",
+    "test": "gulp test"
+  },
+  "engines": {
+    "node": ">=8.0"
+  }
+}

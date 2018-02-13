@@ -1,0 +1,7 @@
+{
+  "extends": "dhi",
+  "env": {
+    "es6": true,
+    "node": true
+  }
+}
