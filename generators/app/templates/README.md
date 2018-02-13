@@ -1,12 +1,12 @@
-## \<<%= elementName %>\>
+## <%= elementName %>
 
 <%= elementDescription %>.
 
 Example:
-<!---
+
 ```html
 <script>
-import('<%= elementName %>.html');\
+import('<%= elementName %>.html');
 </script>
 
 <template>

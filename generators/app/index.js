@@ -2,15 +2,15 @@
 
 const yeoman = require('yeoman-generator');
 
-function generateDefaultElementName(appname) {
+function generateDefaultElementName (appname) {
   if (appname.includes('-')) {
     return appname;
-  } else {
-    return `${appname}-element`;
   }
+
+  return `${appname}-element`;
 }
 
-function generateDefaultElementClassName(defaultElementName) {
+function generateDefaultElementClassName (defaultElementName) {
   const words = defaultElementName.split('-');
   const upperCaseWords = words.map((word) => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
@@ -20,11 +20,11 @@ function generateDefaultElementClassName(defaultElementName) {
 }
 
 module.exports = yeoman.Base.extend({
-  initializing: function() {
-    this.appname = this.appname.replace(/\s+/g, '-');  // Dashes instead of spaces.
+  initializing () {
+    this.appname = 'dhi';
   },
 
-  prompting: function() {
+  prompting () {
     const that = this;
     const defaultElementName = generateDefaultElementName(this.appname);
     const prompts = [
@@ -33,7 +33,7 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         message: 'Name of the element',
         default: defaultElementName,
-        validate(elementName) {
+        validate (elementName) {
           const elementNameContainsHyphen = elementName.includes('-');
           if (!elementNameContainsHyphen) {
             that.log('\nCustom elements must include a hyphen in their name. Please, try again.');
@@ -61,28 +61,20 @@ module.exports = yeoman.Base.extend({
       }
     ];
 
-    return this.prompt(prompts).then(function(props) {
-      this.props = props;
-    }.bind(this));
+    return this.prompt(prompts).then((props) => { this.props = props; });
   },
 
-  writing: function() {
+  writing () {
     this.fs.copyTpl(
       this.templatePath() + '/**/!(_)*',
-      this.destinationPath(),
+      this.destinationPath(this.props.elementName),
       this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_element.html'),
-      this.destinationPath(this.props.elementName + '.html'),
+      this.destinationPath(this.props.elementName + '/' + this.props.elementName + '.html'),
       this.props
     );
-  },
-
-  install: function() {
-    this.installDependencies({
-      npm: false
-    });
   }
 });
