@@ -15,7 +15,7 @@ Create a basic, bare-bones DHI element without demo or tests. To be used in exis
 npm install -g generator-polymer-init-dhi-element
 ```
 
-## Generating an element
+### Generating elements
 Generate a bare-bones element:
 ```
 polymer init dhi-element
