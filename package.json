@@ -1,6 +1,6 @@
 {
   "name": "generator-polymer-init-dhi-element",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Create base DHI Polymer elements.",
   "author": "DHI Group <dhigroup.com>",
   "keywords": [
@@ -32,7 +32,7 @@
     "yeoman-test": "^1.5.0"
   },
   "scripts": {
-    "prepublish": "gulp prepublish",
+    "prepare": "npm run lint && gulp prepublish",
     "lint": "eslint . --ext js,html",
     "test": "gulp test"
   },
