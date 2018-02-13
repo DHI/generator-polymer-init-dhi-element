@@ -26,7 +26,6 @@ Allow creating a standalone element with demo page and tests.
 
 ### Developing
 ```
-npm i -g gulp
 yarn
 ```
 
